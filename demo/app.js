@@ -30,8 +30,12 @@ $(function() {
         console.log('success')
       },
       done: function (event, data) {
+        console.log(data.result.status);
+        
+        // Display status message when upload attempt is done
+        data.context.text(data.result.status);
+
         // When upload is done, fade out progress bar and reset to 0
-        data.context.text('Upload finished.');
         $('.progress').fadeOut(300, function() {
           $('.bar').css('width', 0)
         })
